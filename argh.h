@@ -62,7 +62,8 @@ namespace argh
 
 
       // Get the string value.
-      std::string str() const { return stream_.str(); }
+      std::string str() const & { return stream_.str(); }
+      std::string str() && { return std::move(stream_).str(); }
 
       std::stringbuf* rdbuf() const { return stream_.rdbuf(); }
 
